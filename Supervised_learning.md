@@ -6,7 +6,9 @@ In supervised learning, the goal is to train a  hypothesis function h(x) to map 
   <img src="Figure/Hypothesis_function.png" alt="Hypothesis Function" width="250"/>
 </p>
 
-## Linear Regression: 
+---
+
+## Chapter 1: Linear Regression: 
 The hypothesis function in linear regression for a two dimentional input (a regression problem with two features: x<sub>1</sub> and x<sub>2</sub> ) could be represented as below:
 
 $h_{\theta}(x)/h(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} = \theta^{T}x$, where:
@@ -32,7 +34,48 @@ where:
 - $\alpha$ is the learning rate that controls the step size in gradient descent.
 - $\frac{\partial}{\partial \theta_{j}} J(\theta)$ is the partial derivative of cost function with respect to $\theta_{j}$ used to update the parameter.
 
-`Note` that each iteration in Gradient Descent can incorporate either one random training sample or a batch of samples. When using a batch of samples, it's called Batch Gradient Descent (BGD).
+`Note` that each iteration in Gradient Descent can incorporate either one random training sample or the entire samples. When using the entire samples in each step, it's called Batch Gradient Descent (BGD) which is typically just referred to as Gradient Descent. In the former case, where only one random training sample is used, it's called Stochastic Gradient Descent (SGD).
 
+`Note` that the weights of the hypothesis function could be determined directly using the below close form analytical equation (termed normal equation) which is more suitable for small to medium sized dataset compared to the numerical optimization approaches (e.g., gradient descent):  
+
+$θ = (X^T X)^{-1} X^T y~$  
+where:
+- $\theta$ = vector of the optimal parameter values
+- $X$ = matrix of the training examples
+- $\tilde{y}$ = vector of target values
+
+---
+## Chapter 2: Classification and logistic regression
+Classification is quite similar to the regression except here the output only includes a limited number of discrete values, for instance if it is a binary classification, then the output is either 0 or 1 where 1 is considered the positive class and 0 the negative class.
+ 
+ ### Logistic regression
+In a classification problem (e.g., a binary classification), the hypothesis function should output limited discrete values. Therefore, using a linear regression hypothesis function may not work effectively, and instead, a logistic or sigmoid function is used:
+
+$g(z) = 1 / (1 + e^{(-z)})$
+
+$g(θᵀx) = hθ(x) = 1 / (1 + e^{(-θᵀx)})$ 
+
+where $hθ(x)$ is bounded between 0 and 1. 
+
+Similar to linear regression, in order to find the weights for the hypothesis function we should find the corresponding loss function and then minimize it using gradient descent.
+
+The likelihood function which gives the probability of observing 1 as output label given x as training data and θ as the parameter is as below.
+
+$L(θ) = ∏ᵢ p(yᵢ|Xᵢ, θ) = ∏[hθ(x^{(i)})]^{y^{(i)}} * [1 - hθ(x^{(i)})]^{(1-y^{(i)})}$  
+where:
+- `∏ᵢ` is the product operator that multiplies the probabilities
+- `p(yᵢ|Xᵢ, θ)` is the probability of having `yᵢ` given `xᵢ` and `θ`. 
+
+The weight parameters could be obtained by maximizing the likelihood function above, using gradient descent:
+
+$θj := θj + α∂/∂θj(log L(θ))$ 
+
+Alternatively, weight parameters could be obtained by minimizing the loss function which is -log of likelihood function:
+
+$J(θ) = (-1/m) * ∑(i=1 to m) [y^{(i)}*log(hθ(x^{(i)})) + (1-y^{(i)})*log(1-hθ(x^{(i)}))]$
+
+Using loss function, the gradient descent is:  
+
+$θj := θj - α * ∂J(θ) / ∂θj$
 
 
