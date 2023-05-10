@@ -78,4 +78,5 @@ Using loss function, the gradient descent is:
 
 $θj := θj - α * ∂J(θ) / ∂θj$
 
+`Note` that if instead of the sigmoid function, a simple threshold function is utilized as the hypothesis function (i.e., g(z) = 1 if z>=0 and g(z)=0 if z<0>), then the algorithm is called the perceptron learning algorithm.
 
