@@ -85,3 +85,16 @@ $θj := θj - α * ∂J(θ) / ∂θj$
 ### Multi-class classification
 
 Although the idea of binary classification could be expanded to be used in multi class problems, there are direct methods to train a model and extract the weight parameters. The `multinomial` model is a suitable model which aims at assigning a probability to each possible outcome by meeting the condition that the sum of the probabilities should be 1. It uses a `softmax` function which takes the vector of inputs (`logits`) and transform them into probability vectors. The `softmax` function is then used to compute the probability for every possible outcome. Then the `cross entropy loss` which is a modularized form of `negative log likelihood` is used to compute the discrepancy of the model predictions. The `gradient descent` algorithm is then used to derive the weight parameters.  
+---
+## Chapter 3: Generalized linear model
+Generalized linear models (GLMs) utilize the framework of exponential family distributions to analyze the relationship between independent and dependent variables. In GLMs, the choice of distribution depends on the nature of the problem, with the Bernoulli distribution commonly used for classification tasks and the Gaussian (or normal) distribution for regression.
+
+`Note` that the Gaussian (normal) distribution, synonymous in this context, is a continuous probability distribution characterized by a symmetrical bell-shaped curve. It is typically employed in regression settings to model continuous variables. Whereas, the Bernoulli distribution is a discrete probability distribution designed for binary outcomes. It assigns probabilities to two possible outcomes, typically labeled as 0 and 1, making it suitable for classification problems.
+
+`Note` that the exponential family distribution is a mathematical form of probability distribution. It is termed as such as the exponential term within it's probability density function has the key role. So the exponential distribution which is a specific distribution within the exponential family should not be mistaken with the family distribution itself. 
+
+---
+## Chapter 3: Generative learning algorithm
+There are two main types of learning algorithms when it comes to classification problems. The generative learning algorithm such as Gaussian Naive Bays, which attempts to model the underlying probability distribution of the input variable for each class separately; and the discriminative learning algorithm such as logistic regression which aims at finding the best decision boundary to separate different classes and directly mapping the input variables to the output class labels.
+
+`Note` that the discriminative learning algorithm uses conditional probability distribution (p(y|x)) which is the probability distribution of y given input features x. On the other hand, the generative learning algorithm uses joint distribution (p(x, y)) which is the probability distribution of both input feature x and output label y. This enables generative learning algorithms to be able to generate synthetic data which replicates the same probability distribution of training data.
