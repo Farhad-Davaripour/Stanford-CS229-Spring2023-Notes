@@ -85,6 +85,7 @@ $θj := θj - α * ∂J(θ) / ∂θj$
 ### Multi-class classification
 
 Although the idea of binary classification could be expanded to be used in multi class problems, there are direct methods to train a model and extract the weight parameters. The `multinomial` model is a suitable model which aims at assigning a probability to each possible outcome by meeting the condition that the sum of the probabilities should be 1. It uses a `softmax` function which takes the vector of inputs (`logits`) and transform them into probability vectors. The `softmax` function is then used to compute the probability for every possible outcome. Then the `cross entropy loss` which is a modularized form of `negative log likelihood` is used to compute the discrepancy of the model predictions. The `gradient descent` algorithm is then used to derive the weight parameters.  
+
 ---
 ## Chapter 3: Generalized linear model
 Generalized linear models (GLMs) utilize the framework of exponential family distributions to analyze the relationship between independent and dependent variables. In GLMs, the choice of distribution depends on the nature of the problem, with the Bernoulli distribution commonly used for classification tasks and the Gaussian (or normal) distribution for regression.
@@ -99,7 +100,8 @@ There are two main types of learning algorithms when it comes to classification 
 
 `Note` that the discriminative learning algorithm uses conditional probability distribution (p(y|x)) which is the probability distribution of y given input features x. On the other hand, the generative learning algorithm uses joint distribution (p(x, y)) which is the probability distribution of both input feature x and output label y. This enables generative learning algorithms to be able to generate synthetic data which replicates the same probability distribution of training data.
 
-`Note` that the joint probability distribution represents the probability of the simultaneous occurrence of all possible combinations of target variables and features. It is denoted as P(X1, X2, ..., Xn), where xi is a random variable. On the other hand, the conditional probability distribution focuses on finding the probability of the target variable given the features. It is represented as P(Y|X) = P(X, Y) / P(X), where P(X, Y) is the joint probability distribution and P(X) is the marginal probability distribution of variable X.
+`Note` that the joint probability distribution represents the probability of the simultaneous occurrence of all possible combinations of target variables and features. It is denoted as P(X1, X2, ..., Xn), where xi is a random variable. On the other hand, the conditional probability distribution focuses on finding the probability of the target variable given the features. It is represented as P(Y|X) = P(X, Y) / P(X), where P(X, Y) is the joint probability distribution and P(X) is the marginal probability distribution of variable X.   
+
 ---
 ## Chapter 5: Kernels
 ### Feature maps
@@ -112,6 +114,16 @@ The feature map φ(x) is used to transform the input data into a higher-dimensio
 ### Properties of kernel function
 Kernel function quantifies the similarity or dissimilarity between pairs of data points in high dimensional space which allows to capture complex underlying patterns within the data without explicitly calculating a high dimensional feature vector (i.e., transforming inputs into higher dimension).
 
-So effectively the feature mapping is required to transform the data to higher dimensions when underlying structure of data could not directly be captured in the original feature space. If this is the case, kernel function could be used to do the same without needing this transformation.
+So effectively the feature mapping is required to transform the data to higher dimensions when underlying structure of data could not directly be captured in the original feature space. If this is the case, kernel function could be used to do the same without needing this transformation. Therefore, for each iteration in the gradient descent, the θ value could be computed using kernel function instead of directly computing θ^Tφ(x) which is also called kernel trick.. 
 
 One important step when using kernel function is to find out if there is a mapping function φ such that the kernel function is equal to φ(x)Tφ(z). If this is the case then we can directly work with the kernel function K(x, z) instead of computing high feature vectors. Therefore, the typical approach would be to first choose a kernel function and then determine a feature mapping that corresponds to that.
+
+---
+## Chapter 6: Support vector machines (SVM)
+SVM is one of the best discriminative learning algorithm which focuses on the confidence of prediction based on the distance between a given data point against the decision boundary obtained using training data. The larger the margin between the boundary and data point the higher confidence in prediction. Hence, the goal in SVM algorithm is to determine the decision boundary which can maximize the margin, resulting in better separation and classification of data points.
+
+`Note` that while in SVM the focus is to maximize the margin between decision boundary and data points other classification algorithm such as logistic regression the same goal is presumed indirectly by maximizing the log likelihood function and hence maximizing the probability of the observed data. 
+
+`Note` that in SVM the linear classifier is parametrized by b and w with the hypothesis function being g(w^T x + b), where g outputs 1 if the argument is greater or equal to 0 and -1 otherwise. Also, the confidence in prediction could be represented by  the marginal function as y(w^T x + b) where x and y are training input data and associated labels, respectively. Besides, the measure of confidence could be more meaningfully captured using geometric margin which is the distance between the data point closest to the decision boundary and the boundary itself. The marginal function is then used to formulate the optimization framework to maximize the margin and also correctly classify training data into different classes.
+
+In order to recap, the goal in SVM is to find a decision boundary (hyperplane) that can accurately separate the different classes in the training data. This decision boundary should not only classify the training data correctly but also maximize the margin between the decision boundary and the closest training points from each class. 
