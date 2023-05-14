@@ -94,9 +94,24 @@ Generalized linear models (GLMs) utilize the framework of exponential family dis
 `Note` that the exponential family distribution is a mathematical form of probability distribution. It is termed as such as the exponential term within it's probability density function has the key role. So the exponential distribution which is a specific distribution within the exponential family should not be mistaken with the family distribution itself. 
 
 ---
-## Chapter 3: Generative learning algorithm
+## Chapter 4: Generative learning algorithm
 There are two main types of learning algorithms when it comes to classification problems. The generative learning algorithm such as Gaussian Naive Bays, which attempts to model the underlying probability distribution of the input variable for each class separately; and the discriminative learning algorithm such as logistic regression which aims at finding the best decision boundary to separate different classes and directly mapping the input variables to the output class labels.
 
 `Note` that the discriminative learning algorithm uses conditional probability distribution (p(y|x)) which is the probability distribution of y given input features x. On the other hand, the generative learning algorithm uses joint distribution (p(x, y)) which is the probability distribution of both input feature x and output label y. This enables generative learning algorithms to be able to generate synthetic data which replicates the same probability distribution of training data.
 
 `Note` that the joint probability distribution represents the probability of the simultaneous occurrence of all possible combinations of target variables and features. It is denoted as P(X1, X2, ..., Xn), where xi is a random variable. On the other hand, the conditional probability distribution focuses on finding the probability of the target variable given the features. It is represented as P(Y|X) = P(X, Y) / P(X), where P(X, Y) is the joint probability distribution and P(X) is the marginal probability distribution of variable X.
+---
+## Chapter 5: Kernels
+### Feature maps
+The features maps the attribute variable to the feature variable where the attribute variable is the physical and original input variable whereas the feature variable is some variation of the attribute variable. For instance $\theta_{0} + \theta_{1}x_{1}$ which represents a hypothesis function for a linear regression algorithm could be mapped to higher order terms to also represent more sophisticated patterns (nonlinear relationship between data) as below:
+$\theta_{0} + \theta_{1}x+ \theta_{2}x^2+ \theta_{3}x^3$. 
+### Least mean squares (LMS) with features
+The feature map φ(x) is used to transform the input data into a higher-dimensional space, allowing for a more expressive representation of the relationship between the independent variables and the target variable. By incorporating the feature vector φ(x) into the hypothesis function, represented by θ^T φ(x), the model can capture complex patterns and nonlinear relationships in the data. However, working directly with the high-dimensional feature vectors can be computationally expensive, especially when the dimensionality is large. To address this issue, the kernel function is employed. The kernel function allows us to estimate the dot product between θ^T and φ(x) without explicitly computing the high-dimensional feature vectors. Therefore, the iterative update of theta in the lms algorithm is done using the kernel function.
+
+`Note` that the lsm algorithm represents a combination of mean square error loss function and an optimization algorithm such as gradient descent to find the optimal values for model weight parameters.
+### Properties of kernel function
+Kernel function quantifies the similarity or dissimilarity between pairs of data points in high dimensional space which allows to capture complex underlying patterns within the data without explicitly calculating a high dimensional feature vector (i.e., transforming inputs into higher dimension).
+
+So effectively the feature mapping is required to transform the data to higher dimensions when underlying structure of data could not directly be captured in the original feature space. If this is the case, kernel function could be used to do the same without needing this transformation.
+
+One important step when using kernel function is to find out if there is a mapping function φ such that the kernel function is equal to φ(x)Tφ(z). If this is the case then we can directly work with the kernel function K(x, z) instead of computing high feature vectors. Therefore, the typical approach would be to first choose a kernel function and then determine a feature mapping that corresponds to that.
