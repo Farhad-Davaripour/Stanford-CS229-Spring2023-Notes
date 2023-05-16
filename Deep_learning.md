@@ -1,1 +1,4 @@
-Part 2: Deep Learning
+# Part 2: Deep Learning
+This part covers an overview of neural network, vectorization, and backpropagation.
+## Supervised learning with nonlinear models
+Neural network based models are considered nonlinear algorithms. As for regression problems using neural networks, the mean squared error (MSE) loss function can still be utilized. While, for classification tasks, the log likelihood loss function is commonly employed. In both cases, an optimization algorithm is necessary to find the optimal weight parameters. However, due to the nonlinearity of the hypothesis function, direct determination of the gradients is not feasible. Therefore, backpropagation algorithm, which leverages the chain rule of calculus, is widely employed to compute the gradients efficiently. Backpropagation enables the network to efficiently adjust its weight parameters by propagating the gradients backward through the network.
