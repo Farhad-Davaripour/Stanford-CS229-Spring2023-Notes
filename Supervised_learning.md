@@ -9,7 +9,7 @@ In supervised learning, the goal is to train a  hypothesis function h(x) to map 
 ---
 
 ## Chapter 1: Linear Regression: 
-The hypothesis function in linear regression for a two dimentional input (a regression problem with two features: x<sub>1</sub> and x<sub>2</sub> ) could be represented as below:
+The hypothesis function in linear regression for a two dimensional input (a regression problem with two features: x<sub>1</sub> and x<sub>2</sub> ) could be represented as below:
 
 $h_{\theta}(x)/h(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} = \theta^{T}x$, where:
 
@@ -18,14 +18,14 @@ $h_{\theta}(x)/h(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} = \theta^{T
 - $\theta^{T}$ is the transpose of the weight vector, represented as a row vector.
 - $x$ is the input feature vector, represented as a column vector.
 
-The next step is to forulate a loss function to represent the discreapancy or error of $h(x)$. The most common closs function for a linear regression algorithm is the sum of mean squared erro (or Least squares cost function):
+The next step is to formulate a loss function to represent the discrepancy or error of $h(x)$. The most common loss function for a linear regression algorithm is the sum of mean squared error (or Least squares cost function):
 
 $J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x^{(i)}) - y^{(i)})^2$
 
-`Note` that the mean squread erorr loss function is a convex function since it has a unique global minimum.
+`Note` that the mean squared error loss function is a convex function since it has a unique global minimum.
 
 ### Least Mean Square (LMS)
-Having the loss function, the next step is to minimize the loss function through an iterative process (e.g., using gradient decsent algorithm):
+Having the loss function, the next step is to minimize the loss function through an iterative process (e.g., using gradient descent algorithm):
 
 $\theta_{j} := \theta_{j} - \alpha \frac{\partial}{\partial \theta_{j}} J(\theta)$
 
@@ -80,7 +80,7 @@ $θj := θj - α * ∂J(θ) / ∂θj$
 
 `Note` that alternatively weight parameters could be obtained using Newton's method by maximizing the log likelihood function iteratively. In each iteration the Newton's method finds the root of the first derivative of the function (known as `score function`) to get the direction and the second derivative (`Hessian matrix`) to get step size for updating the weight parameter of the hypothesis function and repeats the process until converging to the max of log likelihood function. The Newton's optimization method is used sometimes over gradient descent as it can improve convergence speed in certain cases.
 
-`Note` that if instead of the sigmoid function, a simple threshold function is utilized as the hypothesis function (i.e., g(z) = 1 if z>=0 and g(z)=0 if z<0>), then the algorithm is called the perceptron learning algorithm.
+`Note` that if instead of the sigmoid function, a simple threshold function is utilized as the hypothesis function (i.e., g(z) = 1 if z>=0 and g(z)=0 if z<0>), then the algorithm is called the `Perceptron learning algorithm`.
 
 ### Multi-class classification
 
