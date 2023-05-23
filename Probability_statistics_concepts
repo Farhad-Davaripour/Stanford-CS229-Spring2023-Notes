@@ -1,23 +1,45 @@
 # Probability and Statistics
 This is a side note providing background on some of fundamental concepts on probability and statistics that are discussed in the main notes. 
 ### Joint probability distribution
-Join probability distribution is the probability distribution of multiple radom variables occurring at the same time. If there are two variables x and y, the join probability distribution is represented by $P(X,Y)$ which provides the probability of different combination of values that x and y could take on.
+Join probability distribution is the probability distribution of multiple radom variables occurring at the same time. If there are two variables x and y, the join probability distribution is represented by $P(X,Y)$ which provides the probability of different combination of values that x and y could take on.  
+
+**Example**
+
+Let's consider two variables, x and y. Assume x can take values {1, 2} and y can take values {a, b}. The joint probability distribution, P(X, Y), represents the probabilities of different combinations of x and y occurring simultaneously. Let's assume the following probabilities:
+
+P(x=1, y=a) = 0.3  
+P(x=1, y=b) = 0.2  
+P(x=2, y=a) = 0.4  
+P(x=2, y=b) = 0.1  
+
+These probabilities represent the likelihood of observing specific combinations of x and y. For example, P(x=1, y=a) indicates the probability of x being 1 and y being a occurring simultaneously.
 ### Conditional probability distribution
 The conditional probability distribution (CPD) refers to the likelihood of observing certain sets of data given other sets of data.
+
+**Example**
+
+Consider two variables, x and y. Assume x can take values {0, 1} and y can take values {a, b}. The conditional probability distribution, P(Y | X), represents the likelihood of observing different values of y given specific values of x. Let's assume the following conditional probabilities:
+
+P(y=a | x=0) = 0.8
+P(y=b | x=0) = 0.2
+P(y=a | x=1) = 0.3
+P(y=b | x=1) = 0.7
+
+These conditional probabilities indicate the likelihood of observing the values of y (a or b) given specific values of x (0 or 1). For example, P(y=a | x=0) indicates the probability of y being a when x is 0.
 ### Likelihood function
-Likelihood function is the conditional probability of observing a specific set of data given a certain sets of parameters (e.g., weight parameters in a linear regression model) within a statistical model (e.g., linear regression hypothesis function), which is represented by $P(x|θ)$ where x is the random variable and θ is the parameter in the statistical model.
+The likelihood function represents the conditional probability of observing a specific set of data given a certain set of parameters within a statistical model. In the context of a linear regression model, the likelihood function specifically measures the conditional probability of observing the dependent variable data points (y) given the independent variable data point (x) and the weight parameters (θ) in the hypothesis function.
 
-To better understand the likelihood function let's consider a dataset with one independent variable (x) and one dependent variable (y). The goal is to fit a linear regression model to map x to y. In the context of linear regression, the joint probability distribution and the conditional probability distribution play important roles. 
+According to Bayes' theorem, the likelihood function is represented as `P(Y | X, parameters) = P(X, Y | parameters) / P(X | parameters)`. The joint probability distribution, `P(X, Y | parameters)`, accounts for the assumptions made by linear regression, such as linearity, independence, and the Gaussian distribution of errors. It captures the probability of simultaneous occurrence of different combinations of x and y based on these assumptions.
 
-According to Bayes' theorem, the probability of observing y given x and the statistical model (also called likelihood function) is represented as P(Y | X, parameters) = P(X, Y | parameters) / P(X | parameters). The joint probability distribution, P(X, Y | parameters), accounts for the assumptions made by linear regression, such as linearity, independence, and the Gaussian distribution of errors. It captures the simultaneous occurrence of different combinations of x and y based on these assumptions.
+On the other hand, the conditional probability distribution, `P(X | parameters)`, represents the probability of x given the linear regression parameters. In linear regression, x is assumed to be deterministic, meaning it does not have a distribution itself.
 
-On the other hand, the conditional probability distribution, P(X | parameters), represents the probability of x given the linear regression parameters. In linear regression, x is assumed to be deterministic, meaning it does not have a distribution itself.
-
-To find the optimal values for the parameters in linear regression, we aim to maximize the likelihood function. This involves utilizing optimization algorithms like gradient descent, which helps identify the parameter values that maximize the probability of observing y given x.
+To find the optimal values for the parameters in linear regression, we aim to maximize the likelihood function. This involves utilizing optimization algorithms like gradient descent to identify the parameter values that maximize the probability of observing y given x and the regression model.
 
 In practice, it is often more convenient to work with the log likelihood function due to its numerical stability and computational efficiency.
 
-Let's go through these steps with a simple example to further clarify the principles:
+**Example**
+
+Let's go through these steps with a simple example with linear regression model to further clarify the principles:
 
 x: [2, 3, 4]
 y: [100, 120, 130]
