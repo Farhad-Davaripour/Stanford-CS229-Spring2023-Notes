@@ -29,20 +29,16 @@ These conditional probabilities indicate the likelihood of observing the values 
 ### Likelihood function
 The likelihood function represents the conditional probability of observing a specific set of data given a certain set of parameters within a statistical model. In the context of a linear regression model, the likelihood function specifically measures the conditional probability of observing the dependent variable data points (y) given the independent variable data point (x) and the weight parameters (θ) in the hypothesis function.
 
-According to Bayes' theorem, the likelihood function is represented as `P(Y | X, parameters) = P(X, Y | parameters) / P(X | parameters)`. The joint probability distribution, `P(X, Y | parameters)`, accounts for the assumptions made by linear regression, such as linearity, independence, and the Gaussian distribution of errors. It captures the probability of simultaneous occurrence of different combinations of x and y based on these assumptions.
+According to Bayes' theorem, the likelihood function is represented as `P(Y|X,parameters) = P(X,Y|parameters)/P(X|parameters)`. The joint probability distribution, `P(X,Y|parameters)`, accounts for the assumptions made by linear regression, such as linearity, independence, and the Gaussian distribution of errors. It captures the probability of simultaneous occurrence of different combinations of x and y based on these assumptions. On the other hand, the conditional probability distribution, `P(X|parameters)`, represents the probability of x given the linear regression parameters. In linear regression, x is assumed to be deterministic, meaning it does not have a distribution itself.
 
-On the other hand, the conditional probability distribution, `P(X | parameters)`, represents the probability of x given the linear regression parameters. In linear regression, x is assumed to be deterministic, meaning it does not have a distribution itself.
-
-To find the optimal values for the parameters in linear regression, we aim to maximize the likelihood function. This involves utilizing optimization algorithms like gradient descent to identify the parameter values that maximize the probability of observing y given x and the regression model.
-
-In practice, it is often more convenient to work with the log likelihood function due to its numerical stability and computational efficiency.
+To find the optimal values for the parameters in linear regression, we aim to maximize the likelihood function. This involves utilizing optimization algorithms like gradient descent to identify the parameter values that maximize the probability of observing y given x and the regression model. In practice, it is often more convenient to work with the log likelihood function due to its numerical stability and computational efficiency.
 
 **Example**
 
-Let's go through these steps with a simple example with linear regression model to further clarify the principles:
+Let's go through the above steps with a simple example with linear regression model to further clarify the principles:
 
-x: [2, 3, 4]
-y: [100, 120, 130]
+independent variable, x: [2, 3, 4]
+dependent variable, y: [100, 120, 130]
 
 - Joint Probability Distribution:  
 The joint probability distribution represents the assumptions made by linear regression. In this case, we assume a linear relationship between x and y with Gaussian errors.
