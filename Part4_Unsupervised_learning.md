@@ -17,3 +17,10 @@ To train the model and find the optimal parameters and assignments, the `EM algo
 Two obvious advantages of using the mixture of Gaussian over the K-means method are: 
 - the number of clusters in the mixture of Gaussian is automatically calculated as opposed to the K-means method which requires specifying the K value in advance.
 - despite K-means method, in the mixture of Gaussian the cluster could have a non-spherical shape.
+
+### Jensen's inequality
+Jensen's inequality is a mathematical concept that enables us to monitor the behavior of a function which in the context of EM algorithm helps us to ensure the likelihood of the observed data is consistently increasing. The application of Jensen's inequality on convex curve states that for any two variable values a and b, the the mid point of of the application of function f to points a and b separately ($E(fx)$) is greater or equal to the application of function f to the midpoint between a and b ($f(E(x))$). This is also visualized in the figure below:
+
+<p align="center">
+  <img src="Figure/Jensens_inequality.png" alt="Hypothesis Function" width="400"/>
+</p>
