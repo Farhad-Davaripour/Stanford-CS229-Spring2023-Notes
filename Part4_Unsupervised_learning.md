@@ -26,3 +26,9 @@ Jensen's inequality is a mathematical concept that enables us to monitor the beh
 <p align="center">
   <img src="Figure/Jensens_inequality.png" alt="Hypothesis Function" width="400"/>
 </p>
+
+### Principal Component Analysis (PCA)
+
+PCA is an efficient method to reduce data dimensionality by maintaining the majority of variance within the data. It is done by normalizing the data and then identifying the diction in the data space that has the highest variation of data, which is called `major axis of variation` or the first principal component. Other components are derived the same way by with a new constraint that each subsequent component should be orthogonal to the previous component to avoid correlation between components. Hence the data with original n features could now be represented by fewer number of components, which is called dimensionality reduction. This technique has multiple use cases in data compression (e.g., representing images with a small number of components), data visualization (e.g., visualizing high dimensional data in a 2d space), data pre-processing (e.g., to reduce computation and overcome overfitting), and noise reduction.  
+
+`Note` that each component in PCA is a combination of original data features and if the direction of a component is closer to a feature it does not necessarily signify the feature's importance, but rather it simply indicates that the feature exhibits more variability.
