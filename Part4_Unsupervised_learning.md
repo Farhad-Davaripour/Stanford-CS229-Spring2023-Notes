@@ -14,6 +14,8 @@ Convergence is determined by achieving a distortion threshold, which measures th
 
 To train the model and find the optimal parameters and assignments, the `EM algorithm` is employed. The algorithm iteratively improves the estimation by performing the E-step and M-step. In the E-step, the latent variable is approximated to determine the probabilities of data points belonging to each group. In the M-step, the distribution parameters are updated based on the  assignments obtained in the E-step. The refinement of assignments and parameter estimates continues until convergence.
 
+In simpler terms, in the E-step (Expectation), we assign each data point a "weight" for each Gaussian distribution in the mixture, reflecting the probability of that data point being generated from that Gaussian. These weights indicate how similar a data point is to each Gaussian's current parameter values. Then, in the M-step (Maximization), we adjust the parameters of each Gaussian distribution (the mean and variance), as well as their proportions in the mixture, to maximize the likelihood of the observed data given these parameters. This is effectively using our weights from the E-step to update our guesses for the parameters in a way that better matches the data. These two steps are iteratively repeated until the parameters and weights stop changing significantly, indicating that the best fit for the data has been found.
+
 Two obvious advantages of using the mixture of Gaussian over the K-means method are: 
 - the number of clusters in the mixture of Gaussian is automatically calculated as opposed to the K-means method which requires specifying the K value in advance.
 - despite K-means method, in the mixture of Gaussian the cluster could have a non-spherical shape.
