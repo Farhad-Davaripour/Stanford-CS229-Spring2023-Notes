@@ -9,6 +9,6 @@
 [Part 5: Reinforcement learning](https://github.com/Farhad-Davaripour/Stanford-CS229-Spring2023-Notes/blob/main/Part5_Reinforcement_Learning_AND_Control.md)  
  
 # Side Notes
-[Fundamental concepts in Probability and Statistics](https://github.com/Farhad-Davaripour/Stanford-CS229-Spring2023-Notes/blob/main/Probability_statistics_concepts)
+[Fundamental concepts in Probability and Statistics](https://github.com/Farhad-Davaripour/Stanford-CS229-Spring2023-Notes/blob/main/Probability_statistics_concepts.md)
 
 Download the main course note from this [Link](https://cs229.stanford.edu/main_notes.pdf).
