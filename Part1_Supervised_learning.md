@@ -34,6 +34,13 @@ where:
 - $\alpha$ is the learning rate that controls the step size in gradient descent.
 - $\frac{\partial}{\partial \theta_{j}} J(\theta)$ is the partial derivative of cost function with respect to $\theta_{j}$ used to update the parameter.
 
+The figure below illustrates the iterations to obtain the global min of a loss function:
+
+<p align="center">
+  <img src="Figure/Gradient_descent.png" alt="Gradient_descent" width="400"/>
+</p>
+
+
 `Note` that each iteration in Gradient Descent can incorporate either one random training sample or the entire samples. When using the entire samples in each step, it's called Batch Gradient Descent (BGD) which is typically just referred to as Gradient Descent. In the former case, where only one random training sample is used, it's called Stochastic Gradient Descent (SGD).
 
 `Note` that the weights of the hypothesis function could be determined directly using the below close form analytical equation (termed normal equation) which is more suitable for small to medium sized dataset compared to the numerical optimization approaches (e.g., gradient descent):  
