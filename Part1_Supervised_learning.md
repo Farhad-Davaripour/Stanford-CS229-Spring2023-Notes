@@ -66,24 +66,22 @@ where $hθ(x)$ is bounded between 0 and 1.
 
 Similar to linear regression, in order to find the weights for the hypothesis function we should find the corresponding loss function and then minimize it using gradient descent.
 
-The likelihood function which gives the probability of observing 1 as output label given x as training data and θ as the parameter is as below.
+$J(θ) = (-1/m) * ∑(i=1 to m) [y^{(i)}*log(hθ(x^{(i)})) + (1-y^{(i)})*log(1-hθ(x^{(i)}))]$
+
+Using loss function, the gradient descent is:  
+
+$θj := θj - α * ∂J(θ) / ∂θj$
+
+Alternatively, weight parameters could be obtained by maximizing the likelihood function which is -log of loss function. The likelihood function which gives the probability of observing 1 as output label given x as training data and θ as the parameter is as below.
 
 $L(θ) = ∏ᵢ p(yᵢ|Xᵢ, θ) = ∏[hθ(x^{(i)})]^{y^{(i)}} * [1 - hθ(x^{(i)})]^{(1-y^{(i)})}$  
 where:
 - `∏ᵢ` is the product operator that multiplies the probabilities
 - `p(yᵢ|Xᵢ, θ)` is the probability of having `yᵢ` given `xᵢ` and `θ`. 
 
-The weight parameters could be obtained by maximizing the likelihood function above, using gradient descent:
+The weight parameters could be obtained by maximizing the likelihood function above, using gradient ascent:
 
 $θj := θj + α∂/∂θj(log L(θ))$ 
-
-Alternatively, weight parameters could be obtained by minimizing the loss function which is -log of likelihood function:
-
-$J(θ) = (-1/m) * ∑(i=1 to m) [y^{(i)}*log(hθ(x^{(i)})) + (1-y^{(i)})*log(1-hθ(x^{(i)}))]$
-
-Using loss function, the gradient descent is:  
-
-$θj := θj - α * ∂J(θ) / ∂θj$
 
 `Note` that alternatively weight parameters could be obtained using Newton's method by maximizing the log likelihood function iteratively. In each iteration the Newton's method finds the root of the first derivative of the function (known as `score function`) to get the direction and the second derivative (`Hessian matrix`) to get step size for updating the weight parameter of the hypothesis function and repeats the process until converging to the max of log likelihood function. The Newton's optimization method is used sometimes over gradient descent as it can improve convergence speed in certain cases.
 
