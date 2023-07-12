@@ -83,9 +83,9 @@ The weight parameters could be obtained by maximizing the likelihood function ab
 
 $θj := θj + α∂/∂θj(log L(θ))$ 
 
-`Note` that alternatively weight parameters could be obtained using Newton's method by maximizing the log likelihood function iteratively. In each iteration the Newton's method finds the root of the first derivative of the function (known as `score function`) to get the direction and the second derivative (`Hessian matrix`) to get step size for updating the weight parameter of the hypothesis function and repeats the process until converging to the max of log likelihood function. The Newton's optimization method is used sometimes over gradient descent as it can improve convergence speed in certain cases.
+`Note` that the weight parameters could also be derived using Newton's method by maximizing the log likelihood function iteratively. In each iteration the Newton's method finds the root of the first derivative of the function (known as `score function`) to get the direction and the second derivative (`Hessian matrix`) to get step size for updating the weight parameter of the hypothesis function and repeats the process until converging to the max of log likelihood function. The Newton's optimization method is used sometimes over gradient ascent as it can improve convergence speed in certain cases.
 
-`Note` that if instead of the sigmoid function, a simple threshold function is utilized as the hypothesis function (i.e., g(z) = 1 if z>=0 and g(z)=0 if z<0>), then the algorithm is called the `Perceptron learning algorithm`.
+`Note` that if instead of the sigmoid function, a simple threshold function is utilized as the hypothesis function (i.e., g(z) = 1 if z>=0 and g(z)=0 if z<0>), then it is called the `Perceptron learning algorithm`.
 
 ### Multi-class classification
 
