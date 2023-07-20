@@ -123,7 +123,7 @@ The feature mapping transformation function (φ(x)) is used to transform the inp
 ### Properties of kernel function
 Kernel function quantifies the similarity or dissimilarity between pairs of data points in high dimensional space which allows to capture complex underlying patterns within the data without explicitly calculating a high dimensional feature vector (i.e., transforming inputs into higher dimension).
 
-So effectively the feature mapping is required to transform the data to higher dimensions when underlying structure of data could not directly be captured in the original feature space. If this is the case, kernel function could be used to do the same without needing this transformation. Therefore, for each iteration in the gradient descent, the θ value could be computed using kernel function instead of directly computing θ^Tφ(x) which is also called kernel trick.. 
+So effectively the feature mapping is required to transform the data to higher dimensions when underlying structure of data could not directly be captured in the original feature space. If this is the case, kernel function could be used to do the same without needing this transformation. Therefore, for each iteration in the gradient descent, the θ value could be computed using kernel function instead of directly computing θ^Tφ(x) which is also called kernel trick.
 
 One important step when using kernel function is to find out if there is a mapping function φ such that the kernel function is equal to φ(x)Tφ(z). If this is the case then we can directly work with the kernel function K(x, z) instead of computing high feature vectors. Therefore, the typical approach would be to first choose a kernel function and then determine a feature mapping that corresponds to that.
 
