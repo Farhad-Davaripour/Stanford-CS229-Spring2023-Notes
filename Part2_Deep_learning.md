@@ -2,7 +2,7 @@
 This part covers an overview of neural network, vectorization, and backpropagation.
 
 <p align="center">
-  <img src="Figure/NN.png" alt="Hypothesis Function" width="400"/>
+  <img src="Figure/NN.png" alt="Hypothesis Function" width="500"/>
 </p>
 
 ## Supervised learning with nonlinear models
