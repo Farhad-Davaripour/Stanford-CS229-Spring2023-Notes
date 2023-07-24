@@ -1,7 +1,7 @@
 # Probability and Statistics
 This is a side note providing background on some of fundamental concepts on probability and statistics that are discussed in the main notes. 
 ## Joint probability distribution
-Join probability distribution is the probability distribution of multiple radom variables occurring at the same time. If there are two variables x and y, the join probability distribution is represented by $P(X,Y)$ which provides the probability of different combination of values that x and y could take on.  
+Joint probability distribution is the probability distribution of multiple random variables occurring at the same time. If there are two variables x and y, the join probability distribution is represented by $P(X,Y)$ which provides the probability of different combination of values that x and y could take on.  
 
 **Example**
 
@@ -12,14 +12,7 @@ P(x=1, y=b) = 0.2
 P(x=2, y=a) = 0.4  
 P(x=2, y=b) = 0.1  
 
-These probabilities represent the likelihood of observing specific combinations of x and y. For example, P(x=1, y=a) indicates the probability of x being 1 and y being a occurring simultaneously.
-
-## Probability Density Function (PDF)
-The probability density function (PDF) represents the probability of a continuous random variable. It describes the relative likelihood of different values that the random variable could take on. One important property of a PDF distribution is that the area under the curve is equal to 1.
-
-**Example**  
-
-for a random variable with Gaussian distribution the pdf could be represented by $f(x) = (1/(σ*√(2π)))*exp(-(x-μ)²/(2σ²))$ where `μ` is the mean and `σ` is the standard deviation.  
+These probabilities represent the likelihood of observing specific combinations of x and y. For example, P(x=1, y=a) indicates the probability of x being 1 and y being a occurring simultaneously. A simple physical example in a deck of playing card would be the probability of drawing a card that is both a king and a heart which is 1 out of 52.
 
 ## Conditional probability distribution
 
@@ -34,7 +27,19 @@ P(y=b | x=0) = 0.2
 P(y=a | x=1) = 0.3
 P(y=b | x=1) = 0.7
 
-These conditional probabilities indicate the likelihood of observing the values of y (a or b) given specific values of x (0 or 1). For example, P(y=a | x=0) indicates the probability of y being a when x is 0.
+These conditional probabilities indicate the likelihood of observing the values of y (a or b) given specific values of x (0 or 1). For example, P(y=a | x=0) indicates the probability of y being a when x is 0. A simple physical example in the game of playing card is if we already know we have drawn a king but we want to know the likelihood of king heart which in this case is 1 our of 4.
+
+## Probability Density Function (PDF)
+The probability density function (PDF) represents the relative likelihood of different values that a continuous random variable could take on. The PDF provides the probability density, which could be used to compute the probability of the variable falling within a particular range. However, it doesn't give the probability of a specific outcome, but rather the probabilities for ranges of outcomes. One important property of a PDF is that the integral over its entire range (the area under the curve) is equal to 1. In other words, the total probability of the variable falling within any possible range is 100%.
+
+**Example**  
+
+for a random variable with Gaussian distribution the pdf (with the following plot) could be represented by $f(x) = (1/(σ*√(2π)))*exp(-(x-μ)²/(2σ²))$ where `μ` is the mean and `σ` is the standard deviation.  
+
+<p align="center">
+  <img src="Figure/PDF.png" alt="Probability Density Function" width="500"/>
+</p>
+
 ## Likelihood function
 The likelihood function represents the conditional probability of observing a specific set of data given a certain set of parameters within a statistical model. In the context of a linear regression model, the likelihood function specifically measures the conditional probability of observing the dependent variable data points (y) given the independent variable data point (x) and the weight parameters (θ) in the hypothesis function.
 
