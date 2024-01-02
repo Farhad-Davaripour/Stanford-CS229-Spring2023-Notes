@@ -54,17 +54,17 @@ Let's go through the above steps with a simple example with linear regression mo
 independent variable, x: [2, 3, 4]
 dependent variable, y: [100, 120, 130]
 
-- Joint Probability Distribution:  
-The joint probability distribution represents the assumptions made by linear regression. In this case, we assume a linear relationship between x and y with Gaussian errors (ε=yi - (β0 + β1*xi)) with 0 mean (μ) and unknown variance (σ2).
+- Conditional Probability Distribution:  
+The conditional probability distribution represents the assumptions made by linear regression. In this case, we assume a linear relationship between x and y with Gaussian errors (ε=yi - (β0 + β1*xi)) with 0 mean (μ) and unknown variance (σ2).
 - Hypothesis function:   
 y = β0 + β1*x
-- Joint probability for one data point which is obtained from Gaussian PDF:  
+- Conditional probability for one data point, which is obtained from Gaussian PDF:  
 P(yi | xi, β0, β1, σ²) = (1/√(2πσ²)) * exp(-εi² / (2σ²))  
 P(yi | xi, β0, β1, σ²) = (1/√(2πσ²)) * exp(-(yi - (β0 + β1*xi))² / (2σ²))
-- Likelihood function which simply is the Joint probability for the entire dataset assuming that the data points are independently and identically distributed (i.i.d):  
+- Likelihood function, which simply is the conditional probability for the entire dataset assuming that the data points are independently and identically distributed (i.i.d):  
 L(β0, β1, σ | X, Y) = Π [1 / √(2πσ^2)] * exp[-(Y - (β0 + β1*X))^2 / (2σ^2)]
 
 - let's assume initial parameter values for bias, weight coefficient, and variance of error as β0 = 0, β1 = 0, σ = 1. The likelihood value is:   
-L(0, 1, 1 | [2, 3, 4], [100, 120, 130]) = [1 / √(2π)] * exp[-(100 - (0 + 2))^2 / (2^2)] * [1 / √(2π)] * exp[-(120 - (0 + 3))^2 / (2^2)] * [1 / √(2π)] * exp[-(130 - (0 + 4))^2 / (2^2)]
+L(0, 1, 1 | [2, 3, 4], [100, 120, 130]) = [1 / √(2π)] * exp[-(100 - (0 + 1 * 2))^2 / ((2 * 1)^2)] * [1 / √(2π)] * exp[-(120 - (0 + 1 * 3))^2 / (2 * 1)^2)] * [1 / √(2π)] * exp[-(130 - (0 + 1 * 4))^2 / (2 * 1)^2)]
 
 The next step is to iteratively compute the likelihood values for other parameters and find those that yield to highest likelihood value (`Maximum Likelihood Estimation (MLE)`).
